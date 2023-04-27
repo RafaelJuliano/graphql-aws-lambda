@@ -9,6 +9,7 @@ yarn.lock
 
 # esbuild directories
 .esbuild
+.build
 .webpack
 lib
 
