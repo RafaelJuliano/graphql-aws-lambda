@@ -1,0 +1,1 @@
+{"version":3,"file":"handler.js","sourceRoot":"","sources":["../../../../src/handlers/hello-world/handler.ts"],"names":[],"mappings":"AAAA,MAAM,OAAO,GAAG,KAAK,EAAC,KAAK,EAAC,EAAE;IAC5B,OAAO;QACL,UAAU,EAAE,GAAG;QACf,IAAI,EAAE,cAAc;KACrB,CAAA;AACH,CAAC,CAAA;AAED,MAAM,CAAC,MAAM,IAAI,GAAG,OAAO,CAAA"}
