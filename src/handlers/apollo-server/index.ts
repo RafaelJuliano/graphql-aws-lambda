@@ -6,8 +6,14 @@ export default {
   events: [
     {
       httpApi: {
-        path: '/hello-world',
+        path: '/graphql',
         method: 'GET',
+      },
+    },
+    {
+      httpApi: {
+        path: '/graphql',
+        method: 'POST',
       },
     },
   ],

@@ -1,8 +1,8 @@
 import type { AWS } from '@serverless/typescript'
-// import { Ssm } from './infra'
+import { Ssm } from './infra'
 import functions from './src/handlers'
 
-// const ssm = new Ssm()
+const ssm = new Ssm()
 
 const serverlessConfiguration: AWS = {
   service: 'graphql-aws-lambda',
@@ -13,6 +13,11 @@ const serverlessConfiguration: AWS = {
     runtime: 'nodejs16.x',
     stage: '${opt:stage, "local"}',
     region: 'us-east-1',
+    iam: {
+      role: {
+        statements: [...ssm.getAllRoles()],
+      },
+    },
     environment: {
       ENV: '${self:provider.stage}',
       LOG_LEVEL: '${self:custom.staged.logLevel, null}',

@@ -1,5 +1,5 @@
-import helloWorld from './hello-world'
+import apolloServer from './apollo-server'
 
 export default {
-  'hello-world': helloWorld,
+  'apollo-server': apolloServer,
 }
