@@ -1,7 +1,7 @@
 import { LambdaContextFunctionArgument, handlers } from '@as-integrations/aws-lambda'
 import { APIGatewayProxyEventV2, APIGatewayProxyStructuredResultV2 } from 'aws-lambda'
 import { Context } from '../../types'
-import { UserDataSource } from '../../dataSources/impl'
+import { GitHubRestDataSource, UserDataSource } from '../../dataSources'
 
 export default {
   context: async (
@@ -15,6 +15,7 @@ export default {
       headers: event.headers,
       dataSources: {
         userDataSource: new UserDataSource(),
+        gitHubDataSource: new GitHubRestDataSource(),
       },
     }
   },

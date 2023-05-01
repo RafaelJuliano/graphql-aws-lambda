@@ -1,4 +1,5 @@
 import userOperations from './User'
+import gitHubOperations from './GitHub'
 import { Resolver } from '../types'
 
 function getResolvers(): {
@@ -6,11 +7,11 @@ function getResolvers(): {
   name: string
   resolver: Resolver<unknown>
 }[] {
-  return [...userOperations.resolvers]
+  return [...userOperations.resolvers, ...gitHubOperations.resolvers]
 }
 
 function getSchemas() {
-  return [...userOperations.schemas]
+  return [...userOperations.schemas, ...gitHubOperations.schemas]
 }
 
 function createResolvers() {
