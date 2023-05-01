@@ -6,6 +6,7 @@ import { resolvers, schemas } from '../../useCases'
 export const createApolloServer = (): ApolloServer<BaseContext> => {
   const rootSchema = gql`
     type Query
+    type Mutation
   `
 
   const typeDefs = [rootSchema, ...schemas]
@@ -14,5 +15,7 @@ export const createApolloServer = (): ApolloServer<BaseContext> => {
     typeDefs,
     resolvers,
   })
-  return new ApolloServer({ schema })
+  return new ApolloServer({
+    schema,
+  })
 }

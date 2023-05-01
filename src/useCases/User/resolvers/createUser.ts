@@ -2,13 +2,13 @@ import { User } from '../../../models/User'
 import { Resolver } from '../../../types'
 
 type Args = {
-  id: string
+  input: Omit<User, 'id'>
 }
 
-export const getUser: Resolver<User, Args> = async (
+export const createUser: Resolver<User, Args> = async (
   _source,
-  { id },
+  { input },
   { dataSources },
 ): Promise<User> => {
-  return dataSources.userDataSource.getUser(id)
+  return dataSources.userDataSource.createUser(input)
 }

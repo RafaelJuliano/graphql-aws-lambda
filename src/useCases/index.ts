@@ -16,6 +16,7 @@ function getSchemas() {
 function createResolvers() {
   const resolvers = {
     Query: {},
+    Mutation: {},
   }
 
   getResolvers().forEach(({ type, name, resolver }) => {
