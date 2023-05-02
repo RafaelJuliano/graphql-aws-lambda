@@ -1,9 +1,9 @@
 import { RESTDataSource, RequestOptions } from '@apollo/datasource-rest'
 import { FetcherResponse } from '@apollo/utils.fetcher'
 import { GraphQLError } from 'graphql'
-import { IGitHubDataSource, GitHubUser } from '../gitHubDataSource'
+import { GitHubDataSource, GitHubUser } from '../gitHubDataSource'
 
-export class GitHubRestDataSource extends RESTDataSource implements IGitHubDataSource {
+export class GitHubRestDataSource extends RESTDataSource implements GitHubDataSource {
   override baseURL = process.env.GITHUB_API_BASE_URL || ''
 
   protected willSendRequest(_path, request) {

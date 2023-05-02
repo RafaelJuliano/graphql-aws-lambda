@@ -1,25 +1,27 @@
+import type { Collection } from 'mongodb'
+import { v4 as uuidV4 } from 'uuid'
 import { User } from '../../models/User'
-import { IUserDataSource } from '../userDataSource'
+import { UserDataSource } from '../userDataSource'
+import { getCollection } from '../../providers/mongoDbProvider'
 
-export class UserDataSource implements IUserDataSource {
-  data: User[] = [
-    {
-      id: 'id-test',
-      name: 'John Smith',
-      email: 'smith@mail.com',
-    },
-  ]
+export class UserMongoDataSource implements UserDataSource {
+  private collectionName = 'users'
 
-  getUser(id: string): Promise<User> {
-    return Promise.resolve(this.data.find(user => user.id === id))
+  private mongoCollection: Collection<User>
+
+  constructor() {
+    this.mongoCollection = getCollection<User>(this.collectionName)
   }
 
-  createUser(user: Omit<User, 'id'>): Promise<User> {
+  getUser(id: string): Promise<User> {
+    return this.mongoCollection.findOne<User>({ id })
+  }
+
+  async createUser(user: Omit<User, 'id'>): Promise<User> {
     const newUser = {
-      id: Math.random().toString(26),
+      id: uuidV4(),
       ...user,
     }
-    this.data.push(newUser)
-    return Promise.resolve(newUser)
+    return newUser
   }
 }

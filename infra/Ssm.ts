@@ -2,7 +2,7 @@ import { Resource } from './Resource'
 
 // Secret Manager can be used here, but SSM is free :)
 export class Ssm extends Resource {
-  private ssmKeys = ['api-auth-token']
+  private ssmKeys = ['api-auth-token', 'mongo-uri']
 
   private resource = 'ssm'
 

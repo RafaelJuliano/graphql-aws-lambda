@@ -1,9 +1,9 @@
-import { IGitHubDataSource } from './gitHubDataSource'
-import { IUserDataSource } from './userDataSource'
+import { GitHubDataSource } from './gitHubDataSource'
+import { UserDataSource } from './userDataSource'
 
 export * from './impl'
 
 export interface DataSources {
-  userDataSource: IUserDataSource
-  gitHubDataSource: IGitHubDataSource
+  userDataSource: UserDataSource
+  gitHubDataSource: GitHubDataSource
 }

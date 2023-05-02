@@ -20,8 +20,6 @@ const serverlessConfiguration: AWS = {
     },
     environment: {
       ENV: '${self:provider.stage}',
-      LOG_LEVEL: '${self:custom.staged.logLevel, null}',
-      API_AUTH_TOKEN: '${ssm:/${self:provider.stage}/sls/api-auth-token}',
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
       NODE_OPTIONS: '--enable-source-maps --stack-trace-limit=1000',
     },
@@ -43,6 +41,7 @@ const serverlessConfiguration: AWS = {
       stages: ['local'],
       ssm: {
         '/local/sls/api-auth-token': 'test',
+        '/local/sls/mongo-uri': 'mongodb://mongodb0.example.com:27017', // Add your local mongo uri
       },
     },
   },

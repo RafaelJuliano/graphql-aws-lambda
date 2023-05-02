@@ -14,7 +14,7 @@ function getSchemas() {
   return [...userOperations.schemas, ...gitHubOperations.schemas]
 }
 
-function createResolvers() {
+function mergeResolvers() {
   const resolvers = {
     Query: {},
     Mutation: {},
@@ -27,5 +27,5 @@ function createResolvers() {
   return resolvers
 }
 
-export const resolvers = createResolvers()
+export const resolvers = mergeResolvers()
 export const schemas = getSchemas()

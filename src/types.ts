@@ -1,8 +1,7 @@
-import type { APIGatewayProxyEventHeaders, Context as LambdaContext } from 'aws-lambda'
+import type { Context as LambdaContext } from 'aws-lambda'
 import { DataSources } from './dataSources'
 
 export interface Context extends LambdaContext {
-  headers: APIGatewayProxyEventHeaders
   dataSources: DataSources
 }
 

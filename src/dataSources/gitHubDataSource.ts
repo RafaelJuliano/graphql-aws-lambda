@@ -33,6 +33,6 @@ export type GitHubUser = {
   updated_at: string
 }
 
-export interface IGitHubDataSource {
+export interface GitHubDataSource {
   getUser(login: string): Promise<GitHubUser>
 }
