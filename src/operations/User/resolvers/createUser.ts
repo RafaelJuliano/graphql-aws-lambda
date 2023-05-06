@@ -9,5 +9,16 @@ export const createUser: Apollo.Resolver<User, Args> = async (
   { input },
   { dataSources },
 ): Promise<User> => {
-  return dataSources.userDataSource.createUser(input)
+  try {
+    console.log('Creating user', {
+      operation: 'createUser',
+      user: input,
+    })
+    return dataSources.userDataSource.createUser(input)
+  } catch (error) {
+    console.log(error.message, {
+      operation: 'createUser',
+      error,
+    })
+  }
 }

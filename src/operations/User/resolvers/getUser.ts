@@ -9,5 +9,16 @@ export const getUser: Apollo.Resolver<User, Args> = async (
   { id },
   { dataSources },
 ): Promise<User> => {
-  return dataSources.userDataSource.getUser(id)
+  try {
+    console.log('Geting user', {
+      operation: 'getUser',
+      id,
+    })
+    return dataSources.userDataSource.getUser(id)
+  } catch (error) {
+    console.log(error.message, {
+      operation: 'getUser',
+      error,
+    })
+  }
 }
