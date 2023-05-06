@@ -7,6 +7,6 @@ export default gql`
   }
 
   extend type Mutation {
-    createUser(input: createUserInput!): User!
+    createUser(input: createUserInput!): User! @auth
   }
 `

@@ -1,11 +1,10 @@
 import userOperations from './User'
 import gitHubOperations from './GitHub'
-import { Resolver } from '../types'
 
 function getResolvers(): {
   type: string
   name: string
-  resolver: Resolver<unknown>
+  resolver: Apollo.Resolver<unknown>
 }[] {
   return [...userOperations.resolvers, ...gitHubOperations.resolvers]
 }

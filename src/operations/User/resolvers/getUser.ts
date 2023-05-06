@@ -1,11 +1,10 @@
 import { User } from '../../../models/User'
-import { Resolver } from '../../../types'
 
 type Args = {
   id: string
 }
 
-export const getUser: Resolver<User, Args> = async (
+export const getUser: Apollo.Resolver<User, Args> = async (
   _source,
   { id },
   { dataSources },
