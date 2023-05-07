@@ -34,4 +34,4 @@ jobs:
           AWS_DEFAULT_REGION: us-east-1
 
       - name: Deploy sls Dev
-        run: npm run deploy --stage dev
+        run: sls deploy --stage=dev
