@@ -22,6 +22,7 @@ export class UserMongoDataSource implements UserDataSource {
       id: uuidV4(),
       ...user,
     }
+    await this.mongoCollection.insertOne(newUser)
     return newUser
   }
 }
